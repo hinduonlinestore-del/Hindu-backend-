@@ -30,10 +30,18 @@ async function getCJToken() {
     }
   }
 
+  // CJ ka poora key string directly password mein jaata hai
+  const email = process.env.CJ_EMAIL;
+  const fullKey = process.env.CJ_API_KEY;
+
+  console.log("Trying CJ auth with email:", email);
+
   const res = await axios.post(`${CJ_BASE}/authentication/getAccessToken`, {
-    email: process.env.CJ_EMAIL,
-    password: process.env.CJ_API_KEY,
+    email: email,
+    password: fullKey,
   });
+
+  console.log("CJ auth response:", JSON.stringify(res.data));
 
   if (res.data?.result !== true) {
     throw new Error(`CJ auth failed: ${JSON.stringify(res.data)}`);
