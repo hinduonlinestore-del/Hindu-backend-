@@ -1,12 +1,17 @@
 {
   "name": "hindu-store-backend",
   "version": "2.0.0",
-  "description": "Backend for Hindu Store – CJ Dropshipping automation",
-  "main": "index.js",
+  "description": "Hindu Store - Professional Dropshipping Backend",
+  "main": "server.js",
   "scripts": {
-    "start": "node api/products.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "dependencies": {
-    "axios": "^1.6.0"
+    "axios": "^1.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.0"
   }
 }
